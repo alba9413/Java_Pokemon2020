@@ -60,7 +60,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
                 imagenPokemon.getHeight());
         Graphics2D g2 = buffer1.createGraphics();
         
-        dibujaElPokemonQueEstaEnLaPosicion(30);
+        dibujaElPokemonQueEstaEnLaPosicion(contador);
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -145,7 +145,6 @@ public class VentanaPokedex extends javax.swing.JFrame {
         habitat = new javax.swing.JLabel();
         tipo = new javax.swing.JLabel();
         movimiento = new javax.swing.JLabel();
-        descripcion = new javax.swing.JLabel();
         especie = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -156,6 +155,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        descripcion = new javax.swing.JTextPane();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -169,7 +169,6 @@ public class VentanaPokedex extends javax.swing.JFrame {
         botonIzq.setContentAreaFilled(false);
         botonIzq.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonIzq.setDefaultCapable(false);
-        botonIzq.setOpaque(false);
         botonIzq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonIzqActionPerformed(evt);
@@ -179,7 +178,6 @@ public class VentanaPokedex extends javax.swing.JFrame {
 
         botonDer.setContentAreaFilled(false);
         botonDer.setDefaultCapable(false);
-        botonDer.setOpaque(false);
         botonDer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonDerActionPerformed(evt);
@@ -211,11 +209,6 @@ public class VentanaPokedex extends javax.swing.JFrame {
         jPanel1.add(habitat, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 40, 20));
         jPanel1.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 80, 20));
         jPanel1.add(movimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 80, 20));
-
-        descripcion.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        descripcion.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        descripcion.setAlignmentY(0.12F);
-        jPanel1.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 240, 60));
         jPanel1.add(especie, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 90, 20));
 
         jLabel1.setText("peso");
@@ -244,6 +237,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
 
         jLabel9.setText("especie");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, -1, 10));
+        jPanel1.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 240, 70));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/image.png"))); // NOI18N
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 760, 490));
@@ -362,7 +356,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
     private javax.swing.JLabel altura;
     private javax.swing.JButton botonDer;
     private javax.swing.JButton botonIzq;
-    private javax.swing.JLabel descripcion;
+    private javax.swing.JTextPane descripcion;
     private javax.swing.JLabel especie;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel habilidad;
