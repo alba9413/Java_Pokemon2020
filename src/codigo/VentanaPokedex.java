@@ -189,6 +189,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
             resultadoConsulta = estado.executeQuery("select * from pokemon where id=" + (contador+1));
             if (resultadoConsulta.next()){
                 nombrePokemon.setText(resultadoConsulta.getString(2));
+               
             }
             else{
                 nombrePokemon.setText("Este pokemon no figura en la pokedex");
