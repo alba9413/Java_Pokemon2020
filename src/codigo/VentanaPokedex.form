@@ -62,24 +62,21 @@
     <Component class="javax.swing.JLabel" name="altura">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="450" y="290" width="-1" height="20"/>
+          <AbsoluteConstraints x="450" y="290" width="30" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="preEvo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="altura"/>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="450" y="250" width="40" height="30"/>
+          <AbsoluteConstraints x="490" y="290" width="40" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="posEvo">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="540" y="290" width="-1" height="20"/>
+          <AbsoluteConstraints x="540" y="290" width="30" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -114,7 +111,7 @@
     <Component class="javax.swing.JLabel" name="especie">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="140" y="420" width="-1" height="-1"/>
+          <AbsoluteConstraints x="110" y="420" width="80" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -149,9 +146,12 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="altura"/>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="490" y="290" width="-1" height="20"/>
+          <AbsoluteConstraints x="450" y="260" width="40" height="20"/>
         </Constraint>
       </Constraints>
     </Component>

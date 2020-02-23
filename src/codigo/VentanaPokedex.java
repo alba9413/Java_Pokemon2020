@@ -56,12 +56,12 @@ public class VentanaPokedex extends javax.swing.JFrame {
                 imagenPokemon.getHeight());
         Graphics2D g2 = buffer1.createGraphics();
         
-        dibujaElPokemonQueEstaEnLaPosicion(30);
+        dibujaElPokemonQueEstaEnLaPosicion(contador);
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
             conexion = DriverManager
-                    .getConnection("jdbc:mysql://127.0.0.1/test",
+                    .getConnection("jdbc:mysql://127.0.0.1/pokedex",
                             "root",
                             "");
             estado = conexion.createStatement();
@@ -149,16 +149,14 @@ public class VentanaPokedex extends javax.swing.JFrame {
         getContentPane().add(imagenPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 170, 120));
         getContentPane().add(nombrePokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 120, 20));
         getContentPane().add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, -1, 20));
-        getContentPane().add(altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, 20));
-
-        preEvo.setText("altura");
-        getContentPane().add(preEvo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 40, 30));
-        getContentPane().add(posEvo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, -1, 20));
+        getContentPane().add(altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 30, 20));
+        getContentPane().add(preEvo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 40, 20));
+        getContentPane().add(posEvo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, 30, 20));
         getContentPane().add(habilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 90, 20));
         getContentPane().add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 40, 20));
         getContentPane().add(movimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 100, 20));
         getContentPane().add(habitat, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 40, 20));
-        getContentPane().add(especie, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, -1));
+        getContentPane().add(especie, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 80, 20));
 
         jLabel11.setText("peso");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
@@ -168,7 +166,9 @@ public class VentanaPokedex extends javax.swing.JFrame {
 
         jLabel13.setText("posEvo");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, -1, -1));
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, -1, 20));
+
+        jLabel14.setText("altura");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 40, 20));
 
         jLabel15.setText("habilidad");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, -1));
@@ -215,6 +215,28 @@ public class VentanaPokedex extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonIzqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIzqActionPerformed
+        dibujaElPokemonQueEstaEnLaPosicion(contador);
+        try {
+            resultadoConsulta = estado.executeQuery("select * from pokemon where id=" + (contador+1));
+            if (resultadoConsulta.next()){
+                nombrePokemon.setText(resultadoConsulta.getString(2));
+                altura.setText(resultadoConsulta.getString(3));
+                peso.setText(resultadoConsulta.getString(4));
+                especie.setText(resultadoConsulta.getString(5));
+                habitat.setText(resultadoConsulta.getString(6));
+                tipo.setText(resultadoConsulta.getString(7));
+                habilidad.setText(resultadoConsulta.getString(8));
+                movimiento.setText(resultadoConsulta.getString(9));
+                preEvo.setText(resultadoConsulta.getString(13));
+                posEvo.setText(resultadoConsulta.getString(14));
+//                descripcion.setText(resultadoConsulta.getString(15));
+            }
+            else{
+                nombrePokemon.setText("Este pokemon no figura en la pokedex");
+            }
+        } catch (SQLException ex) {
+            System.out.print(ex.getMessage());
+        }
         contador --;
         if (contador <=0){
             contador = 1;
@@ -232,11 +254,22 @@ public class VentanaPokedex extends javax.swing.JFrame {
             resultadoConsulta = estado.executeQuery("select * from pokemon where id=" + (contador+1));
             if (resultadoConsulta.next()){
                 nombrePokemon.setText(resultadoConsulta.getString(2));
+                altura.setText(resultadoConsulta.getString(3));
+                peso.setText(resultadoConsulta.getString(4));
+                especie.setText(resultadoConsulta.getString(5));
+                habitat.setText(resultadoConsulta.getString(6));
+                tipo.setText(resultadoConsulta.getString(7));
+                habilidad.setText(resultadoConsulta.getString(8));
+                movimiento.setText(resultadoConsulta.getString(9));
+                preEvo.setText(resultadoConsulta.getString(13));
+                posEvo.setText(resultadoConsulta.getString(14));
+//                descripcion.setText(resultadoConsulta.getString(15));
             }
             else{
                 nombrePokemon.setText("Este pokemon no figura en la pokedex");
             }
         } catch (SQLException ex) {
+            System.out.print(ex.getMessage());
         }
         contador ++;
         if (contador >=649){
