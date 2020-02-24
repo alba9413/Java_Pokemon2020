@@ -229,7 +229,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
                 movimiento.setText(resultadoConsulta.getString(9));
                 preEvo.setText(resultadoConsulta.getString(13));
                 posEvo.setText(resultadoConsulta.getString(14));
-//                descripcion.setText(resultadoConsulta.getString(15));
+//               descripcion.setText(resultadoConsulta.getString(15));
             }
             else{
                 nombrePokemon.setText("Este pokemon no figura en la pokedex");
